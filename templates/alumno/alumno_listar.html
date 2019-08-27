@@ -1,0 +1,52 @@
+{% extends "base/funciones.html" %}
+
+{% block content %}
+    <div class="container-fluid">
+        <br>
+        <h3>Listar alumnos</h3>
+        <br>
+        <table class="table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">DNI</th>
+                    <th scope="col">Fecha de nacimiento</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            {% if object_list %}
+                {% for alumno in object_list %}
+                    <tbody>
+                        <tr class="table-light">
+                            <th scope="row">{{ alumno.nombre }}</th>
+                            <td>{{ alumno.apellido }}</td>
+                            <td>{{ alumno.direccion }}</td>
+                            <td>{{ alumno.dni }}</td>
+                            <td>{{ alumno.fecha_nacimiento }}</td>
+                            <td>{{ alumno.telefono }}</td>
+                            <td>
+                                <a href="#" class="btn btn-success">Editar</a>
+                                <a href="#" class="btn btn-danger">Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                {% endfor %}
+            {% else %}
+            <br>
+            <div class="container">
+                <h3>Aun no hay alumnos registrados</h3>
+                <a href="#" class="btn btn-primary">Agregar alumnos</a>
+            </div>
+            <br>
+            {% endif %}
+        </table>
+
+        {%  if object_list %}
+            <a href="#" class="btn btn-primary">Generar reporte</a>
+        {% endif %}
+        <br>
+    </div>
+{% endblock content %}

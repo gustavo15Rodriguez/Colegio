@@ -12,4 +12,4 @@ class Alumno(models.Model):
     telefono = models.IntegerField()
 
     def __str__(self):
-        return '{}{}'.format(self.nombre,self.apellido)
+        return '{} {}'.format(self.nombre,self.apellido)
