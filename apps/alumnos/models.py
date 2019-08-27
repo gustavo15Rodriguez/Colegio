@@ -10,3 +10,6 @@ class Alumno(models.Model):
     fecha_nacimiento = models.CharField(max_length=40)
     codigo_postal = models.CharField(max_length=40)
     telefono = models.IntegerField()
+
+    def __str__(self):
+        return '{}{}'.format(self.nombre,self.apellido)
