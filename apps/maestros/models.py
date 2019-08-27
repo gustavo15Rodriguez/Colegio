@@ -2,7 +2,7 @@ from django.db import models
 from apps.alumnos.models import Alumno
 
 class Profesor(models.Model):
-    id_alumno = models.AutoField(primary_key=True)
+    id_profesor = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=40)
     apellido = models.CharField(max_length=40)
     direccion = models.CharField(max_length=40)
@@ -11,6 +11,9 @@ class Profesor(models.Model):
     fecha_nacimiento = models.CharField(max_length=40)
     codigo_postal = models.CharField(max_length=40)
     telefono = models.IntegerField()
+
+    def __str__(self):
+        return '{}{}'.format(self.nombre, self.apellido)
 
 
 class Asignatura(models.Model):
@@ -21,6 +24,9 @@ class Asignatura(models.Model):
     incidencias = models.CharField(max_length=60)
     alumnos = models.ForeignKey(Alumno, on_delete=True, blank=True, null=True)
 
+    def __str__(self):
+        return '{}'.format(self.nombre)
+
 
 class Curso(models.Model):
     id_curso = models.AutoField(primary_key=True)
@@ -28,8 +34,14 @@ class Curso(models.Model):
     asignaturas = models.ForeignKey(Asignatura, on_delete=True, blank=True, null=True)
     tutor = models.ForeignKey(Profesor, on_delete=True, blank=True, null=True)
 
+    def __str__(self):
+        return '{}'.format(self.nombre)
+
 class Aula(models.Model):
     id_aula = models.AutoField(primary_key=True)
     piso = models.IntegerField()
     numero_pupitres = models.IntegerField()
     asignaturas = models.ForeignKey(Asignatura, on_delete=True, blank=True, null=True)
+
+    def __str__(self):
+        return '{}'.format(self.piso)
