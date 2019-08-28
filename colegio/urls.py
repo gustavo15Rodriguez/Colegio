@@ -26,6 +26,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/', include('apps.principal.urls')),
     url(r'^registro/', include('apps.usuarios.urls')),
+    url(r'^alumnos/', include('apps.alumnos.urls')),
+    url(r'^maestros/', include('apps.maestros.urls')),
 
     # Password reset
     url(r'^password_reset/', PasswordResetView.as_view(), name='password_reset'),
