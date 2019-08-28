@@ -1,0 +1,14 @@
+{% extends "base/funciones.html" %}
+
+{% block content %}
+    <div class="container">
+        <form method="post">{% csrf_token %}
+            <br>
+            <h3>Registrar asignaturas</h3>
+            <br>
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="#" class="btn btn-success">Listar asignaturas</a>
+        </form>
+    </div>
+{% endblock content %}

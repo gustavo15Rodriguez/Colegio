@@ -1,0 +1,48 @@
+{% extends "base/funciones.html" %}
+
+{% block content %}
+    <div class="container">
+        <br>
+        <h3>Listar aulas</h3>
+        <br>
+        <table class="table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Piso</th>
+                    <th scope="col">Numero de pupitres</th>
+                    <th scope="col">Asignaturas</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            {% if object_list %}
+                {% for aula in object_list %}
+                    <tbody>
+                        <tr class="table-light">
+                            <th scope="row">{{ aula.id_aula }}</th>
+                            <td>{{ aula.piso }}</td>
+                            <td>{{ aula.numero_pupitres }}</td>
+                            <td>{{ aula.asignaturas }}</td>
+                            <td>
+                                <a href="#" class="btn btn-success">Editar</a>
+                                <a href="#" class="btn btn-danger">Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                {% endfor %}
+            {% else %}
+            <br>
+            <div class="container">
+                <h3>Aun no hay aulas registradas</h3>
+                <a href="#" class="btn btn-primary">Agregar aulas</a>
+            </div>
+            <br>
+            {% endif %}
+        </table>
+
+        {%  if object_list %}
+            <a href="#" class="btn btn-primary">Generar reporte</a>
+        {% endif %}
+        <br>
+    </div>
+{% endblock content %}

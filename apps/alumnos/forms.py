@@ -18,7 +18,7 @@ class AlumnoForm(forms.ModelForm):
             'telefono':'Telefono',
         }
 
-    def __init__(self, *args, **kwargs)
+    def __init__(self, *args, **kwargs):
         super(AlumnoForm, self).__init__(*args, **kwargs)
 
         for field in self.fields:

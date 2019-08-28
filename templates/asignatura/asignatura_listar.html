@@ -1,0 +1,52 @@
+{% extends "base/funciones.html" %}
+
+{% block content %}
+    <div class="container-fluid">
+        <br>
+        <h3>Listar asignaturas</h3>
+        <br>
+        <table class="table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Numero de horas</th>
+                    <th scope="col">Nota</th>
+                    <th scope="col">Incidencias</th>
+                    <th scope="col">Alumnos</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            {% if object_list %}
+                {% for asignatura in object_list %}
+                    <tbody>
+                        <tr class="table-light">
+                            <th scope="row">{{ asignatura.id_asignatura }}</th>
+                            <td>{{ asignatura.nombre }}</td>
+                            <td>{{ asignatura.numero_horas }}</td>
+                            <td>{{ asignatura.nota }}</td>
+                            <td>{{ asignatura.incidencias }}</td>
+                            <td>{{ asignatura.alumnos }}</td>
+                            <td>
+                                <a href="#" class="btn btn-success">Editar</a>
+                                <a href="#" class="btn btn-danger">Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                {% endfor %}
+            {% else %}
+            <br>
+            <div class="container">
+                <h3>Aun no hay asignaturas registradas</h3>
+                <a href="#" class="btn btn-primary">Agregar asignaturas</a>
+            </div>
+            <br>
+            {% endif %}
+        </table>
+
+        {%  if object_list %}
+            <a href="#" class="btn btn-primary">Generar reporte</a>
+        {% endif %}
+        <br>
+    </div>
+{% endblock content %}

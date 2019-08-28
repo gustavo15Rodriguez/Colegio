@@ -1,0 +1,14 @@
+{% extends "base/funciones.html" %}
+
+{%  block content %}
+    <div class="container">
+        <form method="post">{% csrf_token  %}
+            <br>
+            <h3>Eliminar aulas</h3>
+            <br>
+            <p>Realmente desea eliminar el aula ubicada en el piso {{ object.piso }}?</p>
+            <button type="submit" class="btn btn-danger">Si, Eliminar</button>
+            <a href="#" class="btn btn-success">Cancelar</a>
+        </form>
+    </div>
+{%  endblock content %}
