@@ -5,7 +5,7 @@
         <br>
         <h3>Listar aulas</h3>
         <br>
-        <table class="table-hover">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -24,8 +24,8 @@
                             <td>{{ aula.numero_pupitres }}</td>
                             <td>{{ aula.asignaturas }}</td>
                             <td>
-                                <a href="#" class="btn btn-success">Editar</a>
-                                <a href="#" class="btn btn-danger">Eliminar</a>
+                                <a href="{% url 'aula_editar' aula.id_aula %}" class="btn btn-success">Editar</a>
+                                <a href="{% url 'aula_eliminar' aula.id_aula %}" class="btn btn-danger">Eliminar</a>
                             </td>
                         </tr>
                     </tbody>
@@ -34,14 +34,14 @@
             <br>
             <div class="container">
                 <h3>Aun no hay aulas registradas</h3>
-                <a href="#" class="btn btn-primary">Agregar aulas</a>
+                <a href="{% url 'aula_crear' %}" class="btn btn-primary">Agregar aulas</a>
             </div>
             <br>
             {% endif %}
         </table>
 
         {%  if object_list %}
-            <a href="#" class="btn btn-primary">Generar reporte</a>
+            <a href="{% url 'reporte_aula_pdf' %}" class="btn btn-primary">Generar reporte</a>
         {% endif %}
         <br>
     </div>

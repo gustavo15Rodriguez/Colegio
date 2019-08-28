@@ -8,7 +8,7 @@
             <br>
             {{ form.as_p }}
             <button type="submit" class="btn btn-primary">Guardar</button>
-            <a href="#" class="btn btn-success">Listar profesores</a>
+            <a href="{% url 'profesor_listar' %}" class="btn btn-success">Listar profesores</a>
         </form>
     </div>
 {% endblock content %}

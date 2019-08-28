@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from apps.alumnos.views import CreateAlumno, UpdateAlumno, DeleteAlumno, ListAlumno
+from apps.alumnos.views import CreateAlumno, UpdateAlumno, DeleteAlumno, ListAlumno, ReporteAlumnosPDF
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
@@ -7,4 +7,6 @@ urlpatterns = [
     url(r'^alumno/crear$', login_required(CreateAlumno.as_view()), name='alumno_crear'),
     url(r'^alumno/editar/(?P<pk>[\d]+)/$', login_required(UpdateAlumno.as_view()), name='alumno_editar'),
     url(r'^alumno/eliminar/(?P<pk>[\d]+)/$', login_required(DeleteAlumno.as_view()), name='alumno_eliminar'),
+
+    url(r'^alumno/reporte_alumno_pdf/', login_required(ReporteAlumnosPDF.as_view()), name='reporte_alumno_pdf'),
 ]

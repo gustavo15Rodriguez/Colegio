@@ -64,7 +64,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'colegio.urls'
 
-#LOGIN_REDIRECT_URL = reverse_lazy('')
+LOGIN_REDIRECT_URL = reverse_lazy('asignatura_listar')
 LOGOUT_REDIRECT_URL = ('login')
 
 TEMPLATES = [

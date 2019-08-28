@@ -29,13 +29,13 @@ class UpdateAlumno(UpdateView):
 class DeleteAlumno(DeleteView):
     model = Alumno
     form_class = AlumnoForm
-    template_name = 'alumno/alumno_delete.html'
+    template_name = 'alumno/alumno_eliminar.html'
     success_url = reverse_lazy('listar_alumnos')
 
 
 class ListAlumno(ListView):
     model = Alumno
-    template_name = 'alumno/alumno_list.html'
+    template_name = 'alumno/alumno_listar.html'
 
 class ReporteAlumnosPDF(View):
 

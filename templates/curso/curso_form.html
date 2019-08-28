@@ -8,7 +8,7 @@
             <br>
             {{ form.as_p }}
             <button type="submit" class="btn btn-primary">Guardar</button>
-            <a href="#" class="btn btn-success">Listar cursos</a>
+            <a href="{% url 'curso_listar' %}" class="btn btn-success">Listar cursos</a>
         </form>
     </div>
 {% endblock content %}
