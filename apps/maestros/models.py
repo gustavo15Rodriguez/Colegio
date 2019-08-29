@@ -9,8 +9,8 @@ class Profesor(models.Model):
     poblacion = models.CharField(max_length=40)
     dni = models.CharField(max_length=40)
     fecha_nacimiento = models.CharField(max_length=40)
-    codigo_postal = models.CharField(max_length=40)
-    telefono = models.IntegerField()
+    codigo_postal = models.CharField(max_length=10)
+    telefono = models.CharField(max_length=12)
 
     def __str__(self):
         return '{} {}'.format(self.nombre, self.apellido)

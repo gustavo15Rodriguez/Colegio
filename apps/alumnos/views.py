@@ -17,20 +17,20 @@ class CreateAlumno(CreateView):
     model = Alumno
     form_class = AlumnoForm
     template_name = 'alumno/alumno_form.html'
-    success_url = reverse_lazy('listar_alumnos')
+    success_url = reverse_lazy('alumno_listar')
 
 class UpdateAlumno(UpdateView):
     model = Alumno
     form_class = AlumnoForm
     template_name = 'alumno/alumno_form.html'
-    success_url = reverse_lazy('listar_alumnos')
+    success_url = reverse_lazy('alumno_listar')
 
 
 class DeleteAlumno(DeleteView):
     model = Alumno
     form_class = AlumnoForm
     template_name = 'alumno/alumno_eliminar.html'
-    success_url = reverse_lazy('listar_alumnos')
+    success_url = reverse_lazy('alumno_listar')
 
 
 class ListAlumno(ListView):
@@ -62,8 +62,8 @@ class ReporteAlumnosPDF(View):
         return response
 
     def tabla(self, pdf, y):
-        encabezado = ('Nombre', 'Apellido', 'Direccion', 'DNI', 'Fecha de nacimiento', 'Telefono')
-        detalle = [(alumno.nombre, alumno.apellido, alumno.direccion, alumno.dni, alumno.fecha_nacimiento. alumno.telefono) for alumno in Alumno.objects.all()]
+        encabezado = ('Nombre', 'Apellido', 'Direccion', 'DNI', 'F. Nacimiento', 'Telefono')
+        detalle = [(alumno.nombre, alumno.apellido, alumno.direccion, alumno.dni, alumno.fecha_nacimiento, alumno.telefono) for alumno in Alumno.objects.all()]
         detalle_orden = Table([encabezado] + detalle, colWidths=[3 * cm, 3 * cm, 3 * cm, 3 * cm])
         detalle_orden.setStyle(TableStyle(
             (

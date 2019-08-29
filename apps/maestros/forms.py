@@ -22,7 +22,7 @@ class ProfesorForm(forms.ModelForm):
         super(ProfesorForm, self).__init__(*args, **kwargs)
 
         for field in self.fields:
-            self.fields[field].widget.attrs.update({'class': 'form-cotrol'})
+            self.fields[field].widget.attrs.update({'class': 'form-control'})
 
 
 
@@ -55,7 +55,7 @@ class AsignaturaForm(forms.ModelForm):
 
         labels = {
             'nombre':'Nombre',
-            'numero_horas':'Numero De Horas',
+            'numero_horas':'Numero de Horas',
             'nota': 'Nota',
             'incidencias': 'Incidencias',
             'alumnos': 'Alumno',

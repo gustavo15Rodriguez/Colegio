@@ -2,6 +2,7 @@ from django import forms
 from apps.alumnos.models import Alumno
 
 class AlumnoForm(forms.ModelForm):
+
     class Meta:
         model = Alumno
 

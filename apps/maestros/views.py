@@ -37,7 +37,7 @@ class ReporteProfesorPDF(View):
         return response
 
     def tabla(self, pdf, y):
-        encabezado = ('Nombre', 'Apellido', 'Direccion', 'DNI', 'Fecha de nacimiento', 'Telefono')
+        encabezado = ('Nombre', 'Apellido', 'Direccion', 'DNI', 'F. nacimiento', 'Telefono')
         detalle = [(profesor.nombre, profesor.apellido, profesor.direccion, profesor.dni, profesor.fecha_nacimiento, profesor.telefono) for profesor in Profesor.objects.all()]
         detalle_orden = Table([encabezado] + detalle, colWidths=[3 * cm, 3 * cm, 3 * cm, 3 * cm])
         detalle_orden.setStyle(TableStyle(
@@ -103,7 +103,7 @@ class ReporteAsignaturaPDF(View):
         return response
 
     def tabla(self, pdf, y):
-        encabezado = ('ID', 'Nombre', 'Numero de horas', 'Nota', 'Incidencias', 'Alumnos')
+        encabezado = ('ID', 'Nombre', 'Num. horas', 'Nota', 'Incidencias', 'Alumnos')
         detalle = [(asignatura.id_asignatura, asignatura.nombre, asignatura.numero_horas, asignatura.nota, asignatura.incidencias, asignatura.alumnos) for asignatura in Asignatura.objects.all()]
         detalle_orden = Table([encabezado] + detalle, colWidths=[3 * cm, 3 * cm, 3 * cm, 3 * cm])
         detalle_orden.setStyle(TableStyle(
